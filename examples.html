@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.min.js"> </script>
+    <link rel="stylesheet" href="style.css">
+    <title>Exam prep</title>
+</head>
+
+<body>
+    <header>
+        <div id="titleDiv">
+            <h1>Exam preparation using HTML, CSS, Javascript, JQuery, Ajax and whatever else
+                <hr>
+            </h1>
+        </div>
+        <nav id="naviDiv">
+            <ul class="dropdown">Practice Pages
+                <a href="svgcanvas.html"><li class="dropitem">SVG and Canvas</li></a>
+                <a href="index.html"><li class="dropitem">Back to index</li></a>
+            </ul>
+        </nav>
+    </header>
+    <div id="exampleContainer">
+        <h1>Example code</h1>
+        <h2>Text attribute manipulation</h2>
+        <code>
+
+    #ExampleText {
+        color: black;
+        text-align: left;
+        text-decoration: none; (underline)
+        font-size: 20pt;
+        text-shadow: 1px 1px 2px #ddd; (offset x, offset y, blur-radius, colour)
+    }
+
+        </code>
+
+
+        <h2>Canvas</h2>
+        <code>
+
+    &ltbody onload="draw();">&lt/body>
+
+    &ltdiv>
+        &ltcanvas id="canvasExample" width="500" height="150">&lt/canvas>
+    &lt/div>
+
+    function draw() {
+        var canvas = document.getElementById('canvasExample')
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d')
+            ctx.fillStyle = 'rgb(200,0,0)'
+            ctx.fillRect(10,10,50,50) //start x, start y, width, height (top left origin)
+        }
+    }
+
+        </code>
+
+
+        <h2>SVG</h2>
+        <code>
+
+    Scalable Vector Graphics
+
+    &ltsvg id = "svgelem" height = "200" xmlns = "http://www.w3.org/2000/svg">
+        &ltpolygon points = "100,10 40,180 190,60 10,60 160,180" fill = "red"/>
+    &lt/svg>
+
+    Pairs of x,y co-ordinates
+
+        </code>
+
+
+        <h2>Basic Javascript</h2>
+        <code>
+
+    try {
+        operation that should be caught
+    } catch (exception variable) {
+        operation on failure
+        throw exception here
+    } finally {
+        operation that occurs after
+    }
+
+        </code>
+
+
+        <h2>Showing and hiding content</h2>
+        <code>
+
+    display: none;
+    display: block;
+
+    document.getElementById("testElement").style.display = "none"
+    document.getElementById("testElement").style.display = "block"
+
+    document.getElementById("testElement").style.visibility = "hidden" (basically 0 opacity; placement is reserved)
+    document.getElementById("testElement").style.visibility = "visible"
+
+    $("target").hide()
+    $("target").show()
+    $("target").toggle() &lt-- these can take (speed, callback)
+        
+        </code>
+
+        
+        <h2>HTML Tables</h2>
+        <code>
+
+    &lttable>
+        &lttr>
+            &lttd> &lt-- can accept colspan for width (colspan="2")
+                &ltp>content&lt/p>
+            &lt/td>
+            &lttd>
+                &ltp>content&lt/p>
+            &lt/td>
+        &lt/tr>
+    &lt/table>
+
+        </code>
+
+
+        <h2>HTML Grids</h2>
+        <code>
+
+    &ltdiv class="wrapper">
+        &ltdiv class="one">One&lt/div>
+        &ltdiv class="two">Two&lt/div>
+        &ltdiv class="three">Three&lt/div>
+    &lt/div>
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); (1fr = 1 fr unit per grid-column)
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+    .one {
+        grid-column: 1 / 3; (start / end)
+        grid-row: 1; 
+    }
+    .two { 
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
+    }
+    .three {
+        grid-column: 1;
+        grid-row: 2 / 5;
+    }
+
+        </code>
+
+
+        <h2>Flexbox</h2>
+        <code>
+
+    &ltdiv class="flexContainer">
+        &ltdiv>
+            Content
+        &lt/div>
+        &ltdiv>
+            Content
+        &lt/div>
+    &lt/div>
+
+    .flexContainer {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-evenly;
+        align-content:space-around;
+        width:auto;
+    }
+    
+        </code>
+
+        
+        <h2>XML HTTP requests</h2>
+        <code>
+
+    var xmlHttpReq = new XMLHttpRequest()
+    xmlHttpReq.open("POST","xmlObjectName")
+    xmlHttpReq.setRequestHeader('Content-Type', "text/xml")
+    var xml = "&lt?xml version='1.0'?>&ltquery>&ltxmlTag>xmlContentk&lt/xmlTag>&lt/query>";
+    xmlHttpReq.send(xml)
+
+    const dataToSend = --Data here--
+    let dataRecieved = ""
+    fetch (
+        "", {
+            method:"post",
+            body:dataToSend
+        }
+    ).then(
+        recievedData => {
+            dataRecieved = recievedData
+        }
+    )
+
+    fetch('http://example.com/example.json')
+        .then((response) => {
+            return response.json();
+        })
+        .then((myJson) => {
+            console.log(myJson);
+        });
+
+    fetch(URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(DATA)
+    })
+    .then(response => response.json())
+    .then(data => { doThingWith(data)})
+
+        </code>
+
+
+        <h2>Workers</h2>
+        <code>
+
+    var myWorker = new Worker('fileForWorkerToRun.js')
+
+    myWorker.postMessage([data, data])
+
+    if (window.Worker){
+        onmessage = function(message){
+            doThingWith(message.data[0] + message.data[1])
+        }
+    }
+
+    myWorker.terminate()
+    
+
+        </code>
+
+
+        <h2>Font faces</h2>
+        <code>
+
+    @font-face {
+        font-family: "Name of the font family",
+        src: url("address.of.the/font.ttf"),
+        src: local("addressRelativeToHtml.otf")
+    }
+
+        </code>
+
+
+        <h2>Media and controls</h2>
+        <code>
+
+    &ltvideo
+        src = "http://video.loc/at.ion"
+        poster = "http://imagetoload.before/pressing/play"
+    > &lt/video>
+
+        </code>
+
+
+        <h2>AJAX using JQuery</h2>
+        <code>
+    
+    $.ajax('/',
+    {
+        dataType: 'json',
+        timeout: 500,
+        success: function(data, status, xhr) {
+            doThingWith(data.key, data.otherkey)
+        }
+    })
+
+    $.ajax('/',
+    {
+        type: 'POST',
+        data: { key: 'value'},
+        success: function(data, status, xhr) {
+            doThingWith(status, data)
+        }
+    })
+
+        </code>
+
+
+        <h2>Borders</h2>
+        <code>
+
+    #div1 {
+        border: 10px;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px;
+        height: 200px;
+        width: 200px;
+    }
+
+        </code>
+
+
+        <h2>Submitting forms</h2>
+        <code>
+
+    &ltform>
+        &ltdiv>
+            &ltlabel for="example">Text which appears alongside the form&lt/label>
+            &ltinput id="example" type="text" name="text">
+        &lt/div>
+        &ltdiv>
+            &ltinput type="submit" value="Send">
+        &lt/div>
+    &lt/form>
+    
+        </code>
+    </div>
+    
+
+</body>
+
+</html>

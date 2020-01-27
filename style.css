@@ -1,0 +1,106 @@
+* {
+    color:white;
+}
+
+html, body {
+    border:0;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color:black;
+}
+
+#titleDiv {
+    text-align: center;
+    background-color: #333;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 30pt;
+}
+
+hr {
+    margin:5px;
+    padding:0;
+}
+
+#taskList {
+    background-color:#333;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-content:space-around;
+    width:auto;
+    margin:20px;
+}
+
+#centralDivider {
+    background-color:gray;
+    width:10px;
+}
+
+#taskListDone{
+    text-align:right;
+}
+
+li {
+    list-style:none;
+}
+
+nav li {
+    border-top: 1px #999 solid;
+}
+
+li:nth-child(10n+5), li:nth-child(10n+4), li:nth-child(10n+3), li:nth-child(10n+2), li:nth-child(10n+1){
+    color:#bbb;
+}
+
+.dropdown{ 
+    width:100%;
+    text-align:center;
+    background-color:#222;
+}
+
+.dropdown .dropitem {
+    height:0px;
+    overflow:hidden;
+    transition:all 1s ease-in-out;
+    width:100%;
+    text-align:center;
+    background-color:#444;
+}
+
+.dropdown:hover .dropitem {
+    height: 17px;
+}
+
+.dropdown, .dropitem{
+    padding:0;
+    break-after: none;
+}
+
+a {
+    text-decoration:none;
+}
+
+#exampleContainer {
+    background-color:#333;
+    width:auto;
+    margin: 20px;
+    padding: 30px;
+}
+
+h2{
+    padding:50px 10px 0px 10px;
+}
+
+code{
+    display: block;
+    white-space: pre;
+    background-image: linear-gradient(to right, #fff1, #0000);
+    box-shadow: 5px 5px 5px #222;
+
+}

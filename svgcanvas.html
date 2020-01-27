@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.min.js"> </script>
+    <link rel="stylesheet" href="style.css">
+    <title>Exam prep: canvas/svg</title>
+</head>
+<body onload="draw();">
+    <header>
+        <div id="titleDiv">
+            <h1>Exam preparation using HTML, CSS, Javascript, JQuery, Ajax and whatever else<hr></h1>
+        </div>
+        <nav id="naviDiv">
+            <ul class="dropdown">Practice Pages
+                <a href="index.html"><li class="dropitem">Back to index</li></a>
+                <a href="examples.html"><li class="dropitem">Examples</li></a>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <canvas id="canvasTest" width="500" height="150"></canvas>
+    </div>
+    <div>
+        <svg id = "svgelem" height = "200" xmlns = "http://www.w3.org/2000/svg">
+            <polygon points = "100,10 40,180 190,60 10,60 160,180" fill = "red"/>
+         </svg>
+    </div>
+</bodyonload="draw();">
+    <script src="svgcanvas.js"></script>
+</html>
